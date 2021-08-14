@@ -5,7 +5,8 @@
 <p align="center">
   <img src="./assets/dino_ascii.png" /> 
 </p>
-<h3> Built Using ❤️ with  <img src="./assets/Pytorch_logo.png"   /> </h3
+<br/>
+<h3> Built Using <img src="./assets/Pytorch_logo.png"/> with ❤️ </h3
 <br/>
 </h1>
 
