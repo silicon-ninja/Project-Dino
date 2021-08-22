@@ -9,9 +9,6 @@
 
 
 ## Table of Contents 
-- [Contributed by Srikanth Kandarp.](#contributed-by-srikanth-kandarp)
-  - [This Document is Submitted as part of EVA 6 Capstone Part 1](#this-document-is-submitted-as-part-of-eva-6-capstone-part-1)
-- [Table of Contents](#table-of-contents)
 - [Questions to be addressed.](#questions-to-be-addressed)
   - [1. We take the encoded image (dxH/32xW/32) and send it to Multi-Head Attention (FROM WHERE DO WE TAKE THIS ENCODED IMAGE?)](#b-1-we-take-the-encoded-image-dxh32xw32-and-send-it-to-multi-head-attention-from-where-do-we-take-this-encoded-imageb)
   - [2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
