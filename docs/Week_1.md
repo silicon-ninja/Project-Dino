@@ -9,17 +9,6 @@
 
 
 ## Table of Contents 
-- [Table of Contents](#table-of-contents)
-- [<center> Overview of the Architecture </center>](#center-overview-of-the-architecture-center)
-  - [<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
-  - [My Solution:](#my-solution)
-  - [<b>3. Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)</b>](#b3-then-we-concatenate-these-maps-with-res5-block-where-is-this-coming-fromb)
-  - [My Solution:](#my-solution-1)
-  - [<b>4. Then we perform the above steps (EXPLAIN THESE STEPS) </b>](#b4-then-we-perform-the-above-steps-explain-these-steps-b)
-  - [My Solution:](#my-solution-2)
-  - [<b>The Pipeline Overview </b>](#bthe-pipeline-overview-b)
-- [Referances](#referances)
-
 
 
 ## <center> Overview of the Architecture </center> 
@@ -76,34 +65,47 @@ To DETR panoptic segmentation has 4 parts:
 
     
     
-## <center>Questions to be addressed</center> 
+## <center>Questions to be addressed :) </center> 
 
 
 <b> 1. We take the encoded image (dxH/32xW/32) and send it to Multi-Head Attention (FROM WHERE DO WE TAKE THIS ENCODED IMAGE?)</b>
 
- My Solution:
+My Solution:
 
-After we predit the bounding boxes from the detr with encoder and decoder 
+After we have trained our model we are left out with the bounding boxes predictions and then we take that box embeddings which are ```(d x N) where d is Dimensions and N is No of Predictions ``` and later we pass those embeddings through the multi head attention layer where the encoded image is coming as 1-Dimensional image and we are converting that into a 2-Dimensional image where we use a multi-head attention layer that returns the attention scores over the encoded image for each object embedding. Here the encoded image is ```(dxH/32xW/32) where d is Dimensions and H is the Height of the Image and W is the Width of the Image```.
 
-### <b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>
+<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>
 
-### My Solution:
+My Solution:
+
+So when we pass the encoded 2-Dimensional image where we up sample and clean these masks using a convolutional network that uses the intermediate activations from the backbone as a result we get high resolution maps which are ```Attention Maps``` and this Attention Maps become the input to the FPN-Style CNN which we achived while we were encoding the images from the encoder when we first feed the image to the cnn and we set aside the activations from the intermediate layers after the encoding.
+
+<b>3. Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)</b>
+
+My Solution:
+
+After we pass the Attention maps to ```Reverse ResNet``` to mask it and then clean it using the activations from the intermediate layers from the encoder that we got it from  and we would be using ```Res5 Block and Others``` for upsampling the ```Attention Maps Channel ``` where 
+```(N x M x H/32 x W/32)```
+ where N is the no of channel maps and M is coming from the Multi-Head Attention with H being the height of the image and W being the width of the image.
+
+    
+<p align="center">
+    
+<img src="../assets/reverse_resnet.png"/> 
+    
+</p>
+
+as we know that the ```Res5 Block``` is coming from the 
+intermediate layers from the encoder and then 2 convolution layers with ```conv 3 x 3 with Group Normalization and ReLU``` and is forward to ```Res4 Block``` where we upscale the image and again do convolution then we repeat this steps until ```Res2 Block``` and finally for one last time we do convolution with ``` conv 3 x 3 with Group Normalization and ReLU and conv 3 x 3 at the end```. After we do the ```Reverse ResNet``` we get the ```Masks Logits``` which are high resolution maps where each pixel contains a binary logic of belonging to the mask finally we merge the masks by assigning each pixel to the mask with the highest logit using a simple pixel-wise rmx.
 
 
-### <b>3. Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)</b>
+<b>4. Then we perform the above steps (EXPLAIN THESE STEPS) </b>
 
-### My Solution: 
+My Solution:
 
-
-
-
-
-### <b>4. Then we perform the above steps (EXPLAIN THESE STEPS) </b>
-
-### My Solution: 
-
-
+After we predit the bounding boxes from the detr with encoder and decoder
 ### <b>The Pipeline Overview </b>
+
 
 
 ## Referances 
