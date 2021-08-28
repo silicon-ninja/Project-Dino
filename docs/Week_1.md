@@ -13,7 +13,7 @@
 - [<center> Overview of the Architecture </center>](#center-overview-of-the-architecture-center)
   - [Achieving Bounding Boxes](#achieving-bounding-boxes)
   - [<center>Yaay! We have achieved the bounding boxes for our image classes</center>](#centeryaay-we-have-achieved-the-bounding-boxes-for-our-image-classescenter)
-  - [<center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and what is Panoptic segmentation ? you may ask. </center>](#center-now-lets-look-into-how-we-can-achive-the-panoptic-segmentation-from-our-bounding-box-prediction-and-what-is-panoptic-segmentation--you-may-ask-center)
+  - [<center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and now what is this Panoptic segmentation ? you may ask ? aren't we done ? Answer: <b>NO.</b> </center>](#center-now-lets-look-into-how-we-can-achive-the-panoptic-segmentation-from-our-bounding-box-prediction-and-now-what-is-this-panoptic-segmentation--you-may-ask--arent-we-done--answer-bnob-center)
 - [<center>Questions to be addressed</center>](#centerquestions-to-be-addressedcenter)
   - [<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
   - [My Solution:](#my-solution)
@@ -112,3 +112,8 @@ After we predit the bounding boxes from the detr with encoder and decoder
 
 ## Referances 
 
+1. https://arxiv.org/pdf/2005.12872.pdf
+2. https://www.youtube.com/watch?v=BNx-wno-0-g
+3. https://www.youtube.com/watch?v=utxbUlo9CyY
+4. https://ai.facebook.com/blog/end-to-end-object-detection-with-transformers/
+5. https://www.kaggle.com/tanulsingh077/end-to-end-object-detection-with-transformers-detr
