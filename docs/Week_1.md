@@ -64,7 +64,7 @@ Now, this is a real problem as in the annotation there is no object class annota
 </p>
 
 
-### <center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and what is Panoptic segmentation ? you may ask. </center>
+### <center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and now what is this Panoptic segmentation ? you may ask ? aren't we done ? Answer: <b>NO.</b> </center>
 
 Panoptic segmentation task it is a fusion of instance segmentation which aims at predicting a mass for each distinct instant of a foreground object and segmenting segmentation which aims at predicting a class label for each pixel in the background the resulting task requires that each pixel belongs to exactly one segment through panoptic segmentation we aim at understanding whether detour's object embeddings can be used for other downstream tasks to approach this task we first train dito to predict boxes around both foreground and background objects in a uniform manner by contrast existing methods tend to treat both kind of entities differently
 
