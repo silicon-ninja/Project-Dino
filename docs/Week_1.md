@@ -11,6 +11,7 @@
 ## Table of Contents 
 
 
+
 ## <center> Overview of the Architecture </center> 
     
 <p align="center">
@@ -96,18 +97,23 @@ After we pass the Attention maps to ```Reverse ResNet``` to mask it and then cle
 </p>
 
 as we know that the ```Res5 Block``` is coming from the 
-intermediate layers from the encoder and then 2 convolution layers with ```conv 3 x 3 with Group Normalization and ReLU``` and is forward to ```Res4 Block``` where we upscale the image and again do convolution then we repeat this steps until ```Res2 Block``` and finally for one last time we do convolution with ``` conv 3 x 3 with Group Normalization and ReLU and conv 3 x 3 at the end```. After we do the ```Reverse ResNet``` we get the ```Masks Logits``` which are high resolution maps where each pixel contains a binary logic of belonging to the mask finally we merge the masks by assigning each pixel to the mask with the highest logit using a simple pixel-wise rmx.
+intermediate layers from the encoder and then 2 convolution layers with ```conv 3 x 3 with Group Normalization and ReLU``` and is forward to ```Res4 Block``` where we upscale the image and again do convolution then we repeat this steps until ```Res2 Block``` and finally for one last time we do convolution with ``` conv 3 x 3 with Group Normalization and ReLU and conv 3 x 3 at the end```. After we do the ```Reverse ResNet``` we get the ```Masks Logits``` which are high resolution maps where each pixel contains a binary logic of belonging to the mask finally we merge the masks by assigning each pixel to the mask with the highest logit using a simple pixel-wise rmx which is four times smaller then our original image and we make it zero and we overlay it on the top then our image and we would end up with the segmentation.
 
 
 <b>4. Then we perform the above steps (EXPLAIN THESE STEPS) </b>
 
 My Solution:
-
-After we predit the bounding boxes from the detr with encoder and decoder
 ### <b>The Pipeline Overview </b>
 
+<p align="center">
+    
+<img src="../assets/segmentation_pipeline.png"/> 
+    
+</p>
+Here is an overview of the panoptic architecture we first feed the image to the cnn and we set aside the activations from the intermediate layers after the encoder we also set aside the encoded version of the image and then proceed to the decoder we end up with one object embedding for the foreground cow and one objector meading for each segment of the background namely the sky grass and trees we then use a multi-head attention layer that returns the attention scores over the encoded image for each object embedding we proceed to upsample and clean these masks using a convolutional network that uses the intermediate activations from the backbone as a result we get high resolution maps where each pixel contains a binary logic of belonging to the mask finally we merge the masks by assigning each pixel to the mask with the highest logit using a simple pixel-wise rmx,
+finally we end up with the segmentation with ``` Things being our object and stuff being the things like sky and grass```
 
-
+---
 ## Referances 
 
 1. https://arxiv.org/pdf/2005.12872.pdf
