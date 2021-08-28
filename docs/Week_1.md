@@ -3,7 +3,7 @@
         EVA 6 (Phase 1) Capstone Part 1<br/>
 </div>
 
-### Contributed by [Srikanth Kandarp](https://github.com/silicon-ninja).
+### Submitted by [Srikanth Kandarp](https://github.com/silicon-ninja).
 
 ### This Document is Submitted as part of EVA 6 Capstone Part 1
 
