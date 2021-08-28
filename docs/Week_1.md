@@ -70,7 +70,7 @@ Panoptic segmentation task it is a fusion of instance segmentation which aims at
 
 To DETR panoptic segmentation has 4 parts:
 
-1. We train DETR to predict boxes around both ```stuff`` and ```things```classes on COCO, using the same recipe. (Hungarian matching is computed using distance between boxes, so predicting boexs is required for the training to be possible)
+1. We train DETR to predict boxes around both ```stuff``` and ```things``` classes on COCO, using the same recipe. (Hungarian matching is computed using distance between boxes, so predicting boexs is required for the training to be possible)
     
 2. A mask head predicts a binary mask for each of the predicted boxes. It takes as input the output of the transformer decoder for each object computes mutli-head(with M heads) attention scores of this embedding over the output of the encoder, generating M attention heatmaps per object in a small resolution.
     
