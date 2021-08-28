@@ -54,10 +54,11 @@ Now, this is a real problem as in the annotation there is no object class annota
 ### <center> Yaay! We have achieved the bounding boxes for our image classes </center>
 
 <p align="center">
-
-![tom](../assets/tom.gif)
-
+    
+  <img width="600" height="200" src="../assets/tom.gif">
+    
 </p>
+
 
 ### Now let's look into how we can achive the panoptic segmentation from our bounding box prediction 
 ## <center>Questions to be addressed</center> 
