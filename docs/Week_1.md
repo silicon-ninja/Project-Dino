@@ -68,6 +68,18 @@ Now, this is a real problem as in the annotation there is no object class annota
 
 Panoptic segmentation task it is a fusion of instance segmentation which aims at predicting a mass for each distinct instant of a foreground object and segmenting segmentation which aims at predicting a class label for each pixel in the background the resulting task requires that each pixel belongs to exactly one segment through panoptix segmentation we aim at understanding whether detour's object embeddings can be used for other downstream tasks to approach this task we first train dito to predict boxes around both foreground and background objects in a uniform manner by contrast existing methods tend to treat both kind of entities differently
 
+To DETR panoptic segmentation has 4 parts:
+
+1. We train DETR to predict boxes around both ```stuff`` and ```things```classes on COCO, using the same recipe. (Hungarian matching is computed using distance between boxes, so predicting boexs is required for the training to be possible)
+    
+2. A mask head predicts a binary mask for each of the predicted boxes. It takes as input the output of the transformer decoder for each object computes mutli-head(with M heads) attention scores of this embedding over the output of the encoder, generating M attention heatmaps per object in a small resolution.
+    
+3. An FPN-like architecture is used to make the final prediction and increase the resolution. The final resolution of the masks has stride 4 and each mask is supervised independently using the DICE/F-1 loss and Focal loss.
+    
+4. We predict the final panoptic segmentation we simply use an argmax over the mask scores at each pixel, and assign the corresponding categories to the resulting masks.
+
+    
+    
 ## <center>Questions to be addressed</center> 
 
 
