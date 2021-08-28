@@ -9,16 +9,19 @@
 
 
 ## Table of Contents 
-- [Contributed by Srikanth Kandarp.](#contributed-by-srikanth-kandarp)
-  - [This Document is Submitted as part of EVA 6 Capstone Part 1](#this-document-is-submitted-as-part-of-eva-6-capstone-part-1)
 - [Table of Contents](#table-of-contents)
 - [<center> Overview of the Architecture </center>](#center-overview-of-the-architecture-center)
-- [Achieving Bounding Boxes](#achieving-bounding-boxes)
+  - [Achieving Bounding Boxes](#achieving-bounding-boxes)
+  - [<center> Yaay! We have achieved the bounding boxes for our image classes </center>](#center-yaay-we-have-achieved-the-bounding-boxes-for-our-image-classes-center)
+  - [Now let's look into how we can achive the panoptic segmentation from our bounding box prediction](#now-lets-look-into-how-we-can-achive-the-panoptic-segmentation-from-our-bounding-box-prediction)
 - [<center>Questions to be addressed</center>](#centerquestions-to-be-addressedcenter)
-  - [1.1. We take the encoded image (dxH/32xW/32) and send it to Multi-Head Attention (FROM WHERE DO WE TAKE THIS ENCODED IMAGE?)](#b1-we-take-the-encoded-image dxH32xW32-and-send-it-to-multi-head-attention-from-where-do-we-take-this-encoded-imageb)
   - [<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
+  - [My Solution:](#my-solution)
   - [<b>3. Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)</b>](#b3-then-we-concatenate-these-maps-with-res5-block-where-is-this-coming-fromb)
+  - [My Solution:](#my-solution-1)
   - [<b>4. Then we perform the above steps (EXPLAIN THESE STEPS) </b>](#b4-then-we-perform-the-above-steps-explain-these-steps-b)
+  - [My Solution:](#my-solution-2)
+  - [<b>The Pipeline Overview </b>](#bthe-pipeline-overview-b)
 - [Referances](#referances)
 
 
@@ -47,6 +50,16 @@ We put the image through a convolution Neural Network Encoder because CNN works 
 <b>Step 2: </b>
 This enriched feature map of the image is given to a transformer encoder-decoder, which outputs the set of box prediction. Each of these boxes is consisting of a tuple. The tuple will be a class and a bounding box. Note: this also includes the class NULL or Nothing class and its position as well.
 Now, this is a real problem as in the annotation there is no object class annotated as nothing. Comparing and dealing with similar objects next to each other is another major issue and in this paper, it is tackled by using bipartite matching loss. The loss is compared by comparing each class and bounding box there is with its corresponding class and box including the none class, which are let’s say N, with the annotation including the part added that contains nothing to make the total boxes N. The assignment of the predicted to the actual is a one to one assignment such that the total loss is minimized. There is a very famous algorithm called the Hungarian method to compute these minimum matching. 
+
+### <center> Yaay! We have achieved the bounding boxes for our image classes </center>
+
+<p align="center">
+
+![tom](../assets/tom.gif)
+
+</p>
+
+### Now let's look into how we can achive the panoptic segmentation from our bounding box prediction 
 ## <center>Questions to be addressed</center> 
 
 
