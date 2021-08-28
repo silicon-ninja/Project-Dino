@@ -11,10 +11,6 @@
 ## Table of Contents 
 - [Table of Contents](#table-of-contents)
 - [<center> Overview of the Architecture </center>](#center-overview-of-the-architecture-center)
-  - [Achieving Bounding Boxes](#achieving-bounding-boxes)
-  - [<center>Yaay! We have achieved the bounding boxes for our image classes</center>](#centeryaay-we-have-achieved-the-bounding-boxes-for-our-image-classescenter)
-  - [<center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and now what is this Panoptic segmentation ? you may ask ? aren't we done ? Answer: <b>NO.</b> </center>](#center-now-lets-look-into-how-we-can-achive-the-panoptic-segmentation-from-our-bounding-box-prediction-and-now-what-is-this-panoptic-segmentation--you-may-ask--arent-we-done--answer-bnob-center)
-- [<center>Questions to be addressed</center>](#centerquestions-to-be-addressedcenter)
   - [<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
   - [My Solution:](#my-solution)
   - [<b>3. Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)</b>](#b3-then-we-concatenate-these-maps-with-res5-block-where-is-this-coming-fromb)
