@@ -27,8 +27,12 @@
 
 
 ## <center> Overview of the Architecture </center> 
-
+    
+<p align="center">
+    
 <img src="../assets/detr_arch_1.png"/> 
+    
+    </p>
 
 The architecture of DETR has three main components, which are a CNN backbone to extract a compact feture representation, encoder-decoder transformer, Feed-Forward Netoworks.
 After feature extractions by CNN, 1x1 convolution will reduced the channel dimension of final outputs of CNN. Since transformer is permutation invariant, the fixed positional encoding will be supplement before input transformer encoder.
