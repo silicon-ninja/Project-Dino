@@ -32,7 +32,7 @@
     
 <img src="../assets/detr_arch_1.png"/> 
     
-    </p>
+</p>
 
 The architecture of DETR has three main components, which are a CNN backbone to extract a compact feture representation, encoder-decoder transformer, Feed-Forward Netoworks.
 After feature extractions by CNN, 1x1 convolution will reduced the channel dimension of final outputs of CNN. Since transformer is permutation invariant, the fixed positional encoding will be supplement before input transformer encoder.
@@ -66,8 +66,7 @@ Now, this is a real problem as in the annotation there is no object class annota
 
 ### <center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and what is Panoptic segmentation ? you may ask. </center>
 
-  Panoptic segmentation task it is a fusion of instance segmentation which aims at predicting a mass for each distinct instant
-  of a foreground object and segmenting segmentation which aims at predicting a class label for each pixel in the background the resulting task requires that each pixel belongs to exactly one segment through panoptix segmentation we aim at understanding whether detour's object embeddings can be used for other downstream tasks to approach this task we first train dito to predict boxes around both foreground and background objects in a uniform manner by contrast existing methods tend to treat both kind of entities differently
+Panoptic segmentation task it is a fusion of instance segmentation which aims at predicting a mass for each distinct instant of a foreground object and segmenting segmentation which aims at predicting a class label for each pixel in the background the resulting task requires that each pixel belongs to exactly one segment through panoptix segmentation we aim at understanding whether detour's object embeddings can be used for other downstream tasks to approach this task we first train dito to predict boxes around both foreground and background objects in a uniform manner by contrast existing methods tend to treat both kind of entities differently
 
 ## <center>Questions to be addressed</center> 
 
