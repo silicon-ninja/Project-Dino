@@ -12,8 +12,8 @@
 - [Table of Contents](#table-of-contents)
 - [<center> Overview of the Architecture </center>](#center-overview-of-the-architecture-center)
   - [Achieving Bounding Boxes](#achieving-bounding-boxes)
-  - [<center> Yaay! We have achieved the bounding boxes for our image classes </center>](#center-yaay-we-have-achieved-the-bounding-boxes-for-our-image-classes-center)
-  - [Now let's look into how we can achive the panoptic segmentation from our bounding box prediction](#now-lets-look-into-how-we-can-achive-the-panoptic-segmentation-from-our-bounding-box-prediction)
+  - [<center>Yaay! We have achieved the bounding boxes for our image classes</center>](#centeryaay-we-have-achieved-the-bounding-boxes-for-our-image-classescenter)
+  - [<center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and what is Panoptic segmentation ? you may ask. </center>](#center-now-lets-look-into-how-we-can-achive-the-panoptic-segmentation-from-our-bounding-box-prediction-and-what-is-panoptic-segmentation--you-may-ask-center)
 - [<center>Questions to be addressed</center>](#centerquestions-to-be-addressedcenter)
   - [<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
   - [My Solution:](#my-solution)
@@ -64,7 +64,11 @@ Now, this is a real problem as in the annotation there is no object class annota
 </p>
 
 
-### Now let's look into how we can achive the panoptic segmentation from our bounding box prediction 
+### <center> Now let's look into how we can achive the panoptic segmentation from our bounding box prediction and what is Panoptic segmentation ? you may ask. </center>
+
+  Panoptic segmentation task it is a fusion of instance segmentation which aims at predicting a mass for each distinct instant
+  of a foreground object and segmenting segmentation which aims at predicting a class label for each pixel in the background the resulting task requires that each pixel belongs to exactly one segment through panoptix segmentation we aim at understanding whether detour's object embeddings can be used for other downstream tasks to approach this task we first train dito to predict boxes around both foreground and background objects in a uniform manner by contrast existing methods tend to treat both kind of entities differently
+
 ## <center>Questions to be addressed</center> 
 
 
