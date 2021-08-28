@@ -15,13 +15,10 @@
 - [<center> Overview of the Architecture </center>](#center-overview-of-the-architecture-center)
 - [Achieving Bounding Boxes](#achieving-bounding-boxes)
 - [<center>Questions to be addressed</center>](#centerquestions-to-be-addressedcenter)
+  - [1.1. We take the encoded image (dxH/32xW/32) and send it to Multi-Head Attention (FROM WHERE DO WE TAKE THIS ENCODED IMAGE?)](#b1-we-take-the-encoded-image dxH32xW32-and-send-it-to-multi-head-attention-from-where-do-we-take-this-encoded-imageb)
   - [<b>2. We do something here to generate NxMxH/32xW/32 maps. (WHAT DO WE DO HERE?)</b>](#b2-we-do-something-here-to-generate-nxmxh32xw32-maps-what-do-we-do-hereb)
-  - [My Solution:](#my-solution)
   - [<b>3. Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)</b>](#b3-then-we-concatenate-these-maps-with-res5-block-where-is-this-coming-fromb)
-  - [My Solution:](#my-solution-1)
   - [<b>4. Then we perform the above steps (EXPLAIN THESE STEPS) </b>](#b4-then-we-perform-the-above-steps-explain-these-steps-b)
-  - [My Solution:](#my-solution-2)
-  - [<b>The Pipeline Overview </b>](#bthe-pipeline-overview-b)
 - [Referances](#referances)
 
 
@@ -42,7 +39,7 @@ Prediction Feed-Forward Network (FFN) – The output for this is going through a
 Evaluator: 
 The evaluation is done on COCO dataset and its primary competitor was the RCNN family that has ruled this category for quiet some time and is considered to be the most classic technique for object detection. 
 
-## Achieving Bounding Boxes 
+### Achieving Bounding Boxes 
 
 Step 1: 
 We put the image through a convolution Neural Network Encoder because CNN works best with images. So after passing through CNN the image features are conserved. This is the higher-order representation of an image with many more feature channels. 
