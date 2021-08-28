@@ -10,7 +10,9 @@
 
 ## Table of Contents 
 
-
+- [<center> Overview of the Architecture </center>](#-center--overview-of-the-architecture---center-)
+- [<center>Questions to be addressed :) </center>](#-center-questions-to-be-addressed------center-)
+- [Referances](#referances)
 
 ## <center> Overview of the Architecture </center> 
     
