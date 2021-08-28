@@ -59,7 +59,7 @@ Now, this is a real problem as in the annotation there is no object class annota
 
 <p align="center">
     
-  <img width="600" height="500" src="../assets/tom.gif">
+  <img width="300" height="200" src="../assets/tom.gif">
     
 </p>
 
